@@ -165,7 +165,7 @@ class GVHandler:
         
     # def saveLoginCookie(self,filename):
     #   ''' Save login cookies to a filename. '''
-    #   if not self.loggedin:
+    #   if not self.loggedIn:
     #       raise Exception("Not logged in.")
     #       return False
     #   self.net.cj.save(filename)
@@ -183,7 +183,7 @@ class GVHandler:
     #   except REFailure,e:
     #       raise REFailure("Regular expression failure. Cookie has probably expired.")
         
-    #   self.loggedin = True
+    #   self.loggedIn = True
     #   return True
         
     def getRnrse(self):
