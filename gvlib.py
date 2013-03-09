@@ -33,7 +33,7 @@ class GVHandler:
     def __init__(self):
         self.MAXSMSLEN = 160
         self.net = nethandler.NetHandler()
-        self.loggedin = False
+        self.loggedIn = False
         self.gvhomedata = None
         self.email = None
         self.password = None
@@ -47,7 +47,7 @@ class GVHandler:
         self.password = password
     
     def login(self):
-        if self.loggedin: return True
+        if self.loggedIn: return True
         if self.authtok: return True
         #if self.rnrse: return True
         if not (self.email and self.password): raise LoginFailure("No username or password specified.")
@@ -65,12 +65,12 @@ class GVHandler:
         if re.search('(?mis)The username or password you entered is incorrect',txt):
             raise LoginFailure("Bad username or password.")
         
-        self.loggedin = True
+        self.loggedIn = True
         self.authtok = filter(lambda x: x.lower().startswith('auth='), txt.strip().split('\n'))[0][5:]
 
     # def login(self):
     #   ''' Login to Google Voice. '''
-    #   if self.loggedin: return True
+    #   if self.loggedIn: return True
     #   if self.rnrse: return True
     #   if not (self.email and self.password): raise LoginFailure("No username or password specified.")
         
@@ -99,7 +99,7 @@ class GVHandler:
     #   if re.search('(?mis)The username or password you entered is incorrect',txt):
     #       raise LoginFailure("Bad username or password.")
         
-    #   self.loggedin = True
+    #   self.loggedIn = True
 
     def sendSMS(self,dest,msg):
         ''' Send a text 'msg' to 'dest'. '''        
